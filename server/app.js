@@ -33,8 +33,8 @@ app.post("/send-email", async (req, res) => {
   });
 
   // welcome
-  app.get("/", (res) => {
-    res.status(200).send("Deployment Successful! 🥳");
+  app.get("/", (req, res) => {
+    res.send("Server running!! 🥳");
   });
 
   // Read the HTML template for the main email
