@@ -19,6 +19,11 @@ app.use(bodyParser.json());
 // cors
 app.use(cors());
 
+// welcome
+app.get("/", (req, res) => {
+  res.send("Server running!! 🥳");
+});
+
 // api
 app.post("/send-email", async (req, res) => {
   const { name, email, message } = req.body;
@@ -30,11 +35,6 @@ app.post("/send-email", async (req, res) => {
       user: process.env.GMAIL_USER,
       pass: process.env.GMAIL_PASS,
     },
-  });
-
-  // welcome
-  app.get("/", (req, res) => {
-    res.send("Server running!! 🥳");
   });
 
   // Read the HTML template for the main email
