@@ -1,0 +1,8 @@
+{
+  "appId": "com.portfolio.jayed",
+  "appName": "Jayed",
+  "webDir": "dist",
+  "server": {
+    "androidScheme": "https"
+  }
+}

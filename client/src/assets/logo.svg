@@ -1,0 +1,45 @@
+<svg xmlns="http://www.w3.org/2000/svg" version="1.1" xmlns:xlink="http://www.w3.org/1999/xlink" xmlns:svgjs="http://svgjs.dev/svgjs" width="320" height="200" viewBox="0 0 2000 1247">
+  <g transform="matrix(1,0,0,1,-1.2121212121212466,0.504858299595071)">
+    <svg viewBox="0 0 396 247" data-background-color="#331e6d" preserveAspectRatio="xMidYMid meet" height="1247" width="2000" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+      <g id="tight-bounds" transform="matrix(1,0,0,1,0.2400000000000091,-0.09999999999999432)">
+        <svg viewBox="0 0 395.52 247.2" height="247.2" width="395.52">
+          <g>
+            <svg></svg>
+          </g>
+          <g>
+            <svg viewBox="0 0 395.52 247.2" height="247.2" width="395.52">
+              <g transform="matrix(1,0,0,1,75.54432,60.788145871417505)">
+                <svg viewBox="0 0 244.43135999999998 125.62370825716498" height="125.62370825716498" width="244.43135999999998">
+                  <g>
+                    <svg viewBox="0 0 244.43135999999998 125.62370825716498" height="125.62370825716498" width="244.43135999999998">
+                      <g>
+                        <svg viewBox="0 0 244.43135999999998 125.62370825716498" height="125.62370825716498" width="244.43135999999998">
+                          <g id="textblocktransform">
+                            <svg viewBox="0 0 244.43135999999998 125.62370825716498" height="125.62370825716498" width="244.43135999999998" id="textblock">
+                              <g>
+                                <svg viewBox="0 0 244.43135999999998 125.62370825716498" height="125.62370825716498" width="244.43135999999998">
+                                  <g transform="matrix(1,0,0,1,0,0)">
+                                    <svg width="244.43135999999998" viewBox="1.27 -32.4 63.029999999999994 32.4" height="125.62370825716498" data-palette-color="#ffcf31">
+                                      <path d="M5.2-25.34L5.2-32.4 30.88-32.4 30.88-6.47 24.41 0 20.09 0 20.09-25.34 5.2-25.34ZM12.48-13.57L12.48-6.47 18.38-6.47 18.38 0 7.76 0 1.27-6.47 1.27-13.57 12.48-13.57ZM38.62-25.34L38.62-32.4 64.3-32.4 64.3-6.47 57.83 0 53.51 0 53.51-25.34 38.62-25.34ZM45.9-13.57L45.9-6.47 51.8-6.47 51.8 0 41.18 0 34.69-6.47 34.69-13.57 45.9-13.57Z" opacity="1" transform="matrix(1,0,0,1,0,0)" fill="#ffcf31" class="wordmark-text-0" data-fill-palette-color="primary" id="text-0"></path>
+                                    </svg>
+                                  </g>
+                                </svg>
+                              </g>
+                            </svg>
+                          </g>
+                        </svg>
+                      </g>
+                    </svg>
+                  </g>
+                </svg>
+              </g>
+              <path d="M152.824 54.788L152.824 7.902 384.221 7.902 384.221 239.298 152.824 239.298 152.824 192.412 164.153 192.412 164.153 227.97 372.892 227.97 372.892 19.23 164.153 19.23 164.153 54.788Z" fill="#ffcf31" stroke="transparent" data-fill-palette-color="tertiary"></path>
+            </svg>
+          </g>
+          <defs></defs>
+        </svg>
+        <rect width="395.52" height="247.2" fill="none" stroke="none" visibility="hidden"></rect>
+      </g>
+    </svg>
+  </g>
+</svg>
