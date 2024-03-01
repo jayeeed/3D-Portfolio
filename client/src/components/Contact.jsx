@@ -62,7 +62,7 @@ const Contact = () => {
 
     try {
       // Make a POST request to your Node.js server
-      await axios.post(import.meta.env.VITE_APP_API, form);
+      await axios.post(import.meta.env.VITE_APP_API + "/email", form);
 
       handleSnackbar(
         "success",
