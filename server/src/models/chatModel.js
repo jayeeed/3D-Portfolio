@@ -29,7 +29,7 @@ async function trainBot() {
         openAIApiKey: apikey,
       })
     );
-    vectorStore.save("../../hnswlib");
+    vectorStore.save("hnswlib");
     console.log("success");
     return vectorStore;
   } catch (error) {
