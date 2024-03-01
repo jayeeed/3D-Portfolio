@@ -1,6 +1,7 @@
 const fs = require("fs");
 const path = require("path");
 const nodemailer = require("nodemailer");
+
 const { sendThankYouEmail } = require("../models/emailModel");
 
 async function sendEmail(req, res) {

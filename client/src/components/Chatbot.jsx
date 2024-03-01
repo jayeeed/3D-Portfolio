@@ -1,6 +1,5 @@
 /* eslint-disable react/prop-types */
 import { useState } from "react";
-import { botcontext } from "../constants";
 import "@chatscope/chat-ui-kit-styles/dist/default/styles.min.css";
 
 import {
@@ -19,7 +18,7 @@ const Chat = ({ messages, isTyping, handleSend }) => (
         className="max-h-80 p-2 overflow-scroll md:overflow-x-hidden font-semibold"
         scrollBehavior="smooth"
         typingIndicator={
-          isTyping ? <TypingIndicator content="AI Mama is typing" /> : null
+          isTyping ? <TypingIndicator content="Assistant is typing" /> : null
         }
       >
         <div className="max-h-full overflow-y-auto font-semibold">
@@ -46,9 +45,9 @@ const ToggleChatButton = ({ onClick, showChat }) => (
 const Chatbot = () => {
   const [messages, setMessages] = useState([
     {
-      message: "Hello, I'm AI Mama, Assistant of Jayed! Ask me anything!",
+      message: "Hello, I'm Assistant of Jayed. How can I help you?",
       sentTime: "just now",
-      sender: "AI Mama",
+      sender: "Assistant",
     },
   ]);
 
@@ -67,43 +66,28 @@ const Chatbot = () => {
     setMessages(newMessages);
 
     setIsTyping(true);
-    await processMessageToAIMama(newMessages);
+    await processMessage(newMessages);
   };
 
-  const processMessageToAIMama = async (chatMessages) => {
-    let apiMessages = chatMessages.map((messageObject) => {
-      let role = messageObject.sender === "AI Mama" ? "assistant" : "user";
-      return { role, content: messageObject.message };
-    });
-
-    const apiRequestBody = {
-      model: "gpt-3.5-turbo-1106",
-      messages: [botcontext.systemMessage, ...apiMessages],
-    };
-
-    const apiKeys = [import.meta.env.VITE_9990, import.meta.env.VITE_990];
-    let currentApiKeyIndex = 0;
+  const processMessage = async () => {
+    const API_ENDPOINT = import.meta.env.VITE_APP_API + "/chat";
 
     try {
-      const API_KEY = apiKeys[currentApiKeyIndex];
-      const API_ENDPOINT = import.meta.env.VITE_OPENAI_EP;
-
       const response = await fetch(API_ENDPOINT, {
         method: "POST",
         headers: {
-          Authorization: `Bearer ${API_KEY}`,
           "Content-Type": "application/json",
         },
-        body: JSON.stringify(apiRequestBody),
+        body: JSON.stringify(messages),
       });
 
       const data = await response.json();
 
       setMessages([
-        ...chatMessages,
+        ...messages,
         {
-          message: data.choices[0].message.content,
-          sender: "AI Mama",
+          message: data.message,
+          sender: "Assistant",
         },
       ]);
 
@@ -111,14 +95,6 @@ const Chatbot = () => {
     } catch (error) {
       console.error("Error processing message:", error);
       setIsTyping(false);
-
-      // If the first API key fails, try the second one
-      if (currentApiKeyIndex === 0) {
-        currentApiKeyIndex = 1;
-        await processMessageToAIMama(chatMessages);
-      } else {
-        // Add user feedback or retry logic here
-      }
     }
   };
 

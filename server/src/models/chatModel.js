@@ -1,4 +1,6 @@
 const fs = require("fs");
+const path = require("path");
+
 const { OpenAI, OpenAIEmbeddings } = require("@langchain/openai");
 const { RecursiveCharacterTextSplitter } = require("langchain/text_splitter");
 const { RetrievalQAChain, loadQARefineChain } = require("langchain/chains");
@@ -8,7 +10,11 @@ const apikey = process.env.OPENAI_API_KEY;
 
 async function trainBot() {
   try {
-    const trainingText = fs.readFileSync("./assets/data/training.txt", "utf8");
+    const trainingTextPath = path.join(
+      __dirname,
+      "../../assets/data/training.txt"
+    );
+    const emailTemplate = fs.readFileSync(trainingTextPath, "utf-8");
 
     const textSplitter = new RecursiveCharacterTextSplitter({
       chunkSize: 1000,
