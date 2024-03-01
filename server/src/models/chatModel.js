@@ -8,12 +8,11 @@ const { HNSWLib } = require("@langchain/community/vectorstores/hnswlib");
 
 const apikey = process.env.OPENAI_API_KEY;
 
+const trainingTextPath = path.join(__dirname, "../../assets/data/training.txt");
+const vectorStorePath = path.join(__dirname, "../../hnswlib");
+
 async function trainBot() {
   try {
-    const trainingTextPath = path.join(
-      __dirname,
-      "../../assets/data/training.txt"
-    );
     const trainingText = fs.readFileSync(trainingTextPath, "utf-8");
 
     const textSplitter = new RecursiveCharacterTextSplitter({
@@ -29,8 +28,14 @@ async function trainBot() {
         openAIApiKey: apikey,
       })
     );
-    vectorStore.save("hnswlib");
-    console.log("success");
+
+    if (!fs.existsSync(vectorStorePath)) {
+      fs.mkdirSync(vectorStorePath);
+    }
+
+    vectorStore.save(vectorStorePath);
+    console.log("Vector store saved to:", vectorStorePath);
+
     return vectorStore;
   } catch (error) {
     console.error(error);
@@ -41,7 +46,7 @@ async function trainBot() {
 async function getAnswer(question) {
   try {
     const vectorStore = await HNSWLib.load(
-      "../../hnswlib",
+      vectorStorePath,
       new OpenAIEmbeddings({
         openAIApiKey: apikey,
       })
