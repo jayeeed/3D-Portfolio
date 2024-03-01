@@ -41,7 +41,7 @@ async function trainBot() {
 async function getAnswer(question) {
   try {
     const vectorStore = await HNSWLib.load(
-      "hnswlib",
+      "../../hnswlib",
       new OpenAIEmbeddings({
         openAIApiKey: apikey,
       })
