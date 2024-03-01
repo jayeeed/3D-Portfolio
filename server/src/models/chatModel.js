@@ -14,7 +14,7 @@ async function trainBot() {
       __dirname,
       "../../assets/data/training.txt"
     );
-    const emailTemplate = fs.readFileSync(trainingTextPath, "utf-8");
+    const trainingText = fs.readFileSync(trainingTextPath, "utf-8");
 
     const textSplitter = new RecursiveCharacterTextSplitter({
       chunkSize: 1000,
