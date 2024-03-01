@@ -1,4 +1,3 @@
-/* eslint-disable react/prop-types */
 import { useState } from "react";
 import "@chatscope/chat-ui-kit-styles/dist/default/styles.min.css";
 
@@ -11,6 +10,8 @@ import {
   TypingIndicator,
 } from "@chatscope/chat-ui-kit-react";
 
+import PropTypes from "prop-types";
+
 const Chat = ({ messages, isTyping, handleSend }) => (
   <MainContainer className="rounded-2xl font-semibold">
     <ChatContainer>
@@ -18,7 +19,7 @@ const Chat = ({ messages, isTyping, handleSend }) => (
         className="max-h-80 p-2 overflow-scroll md:overflow-x-hidden font-semibold"
         scrollBehavior="smooth"
         typingIndicator={
-          isTyping ? <TypingIndicator content="Assistant is typing" /> : null
+          isTyping ? <TypingIndicator content="AI Mama is typing" /> : null
         }
       >
         <div className="max-h-full overflow-y-auto font-semibold">
@@ -32,6 +33,12 @@ const Chat = ({ messages, isTyping, handleSend }) => (
   </MainContainer>
 );
 
+Chat.propTypes = {
+  messages: PropTypes.array.isRequired,
+  isTyping: PropTypes.bool.isRequired,
+  handleSend: PropTypes.func.isRequired,
+};
+
 const ToggleChatButton = ({ onClick, showChat }) => (
   <button
     className="bg-purple-600 hover:bg-purple-900 text-white text-xl font-semibold py-6 px-4 rounded-full 
@@ -42,12 +49,17 @@ const ToggleChatButton = ({ onClick, showChat }) => (
   </button>
 );
 
+ToggleChatButton.propTypes = {
+  onClick: PropTypes.func.isRequired,
+  showChat: PropTypes.bool.isRequired,
+};
+
 const Chatbot = () => {
   const [messages, setMessages] = useState([
     {
-      message: "Hello, I'm Assistant of Jayed. How can I help you?",
+      message: "Hello, I'm AI Mama, Assistant of Jayed! Ask me anything!",
       sentTime: "just now",
-      sender: "Assistant",
+      sender: "AI Mama",
     },
   ]);
 
@@ -62,32 +74,28 @@ const Chatbot = () => {
     };
 
     const newMessages = [...messages, newMessage];
-
     setMessages(newMessages);
 
     setIsTyping(true);
-    await processMessage(newMessages);
-  };
-
-  const processMessage = async () => {
-    const API_ENDPOINT = import.meta.env.VITE_APP_API + "/chat";
 
     try {
-      const response = await fetch(API_ENDPOINT, {
+      const API = import.meta.env.VITE_APP_API;
+
+      const response = await fetch(API + "/chat", {
         method: "POST",
         headers: {
           "Content-Type": "application/json",
         },
-        body: JSON.stringify(messages),
+        body: JSON.stringify({ question: message }),
       });
 
       const data = await response.json();
 
       setMessages([
-        ...messages,
+        ...newMessages,
         {
-          message: data.message,
-          sender: "Assistant",
+          message: data.answer,
+          sender: "AI Mama",
         },
       ]);
 
