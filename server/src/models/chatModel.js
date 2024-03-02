@@ -3,8 +3,9 @@ const path = require("path");
 
 const { OpenAI, OpenAIEmbeddings } = require("@langchain/openai");
 const { RecursiveCharacterTextSplitter } = require("langchain/text_splitter");
-const { RetrievalQAChain, loadQARefineChain } = require("langchain/chains");
+const { RetrievalQAChain, loadQAStuffChain } = require("langchain/chains");
 const { HNSWLib } = require("@langchain/community/vectorstores/hnswlib");
+const { PromptTemplate } = require("@langchain/core/prompts");
 
 const apikey = process.env.OPENAI_API_KEY;
 
@@ -44,6 +45,18 @@ async function trainBot() {
 
 async function getAnswer(question) {
   try {
+    const promptTemplate = `Use the following pieces of context to answer the question at the end. If you don't know the answer, just say that you don't know, don't try to make up an answer. Try to answer as short as you can and answer in bullet points if relevant.
+
+    {context}
+    
+    Example Question:What's your name?
+    Example Answer:My name is Jayed Bin Jahangir.
+
+    Question:{question}
+    Answer:`;
+
+    const prompt = PromptTemplate.fromTemplate(promptTemplate);
+
     const vectorStore = await HNSWLib.load(
       vectorStorePath,
       new OpenAIEmbeddings({
@@ -57,8 +70,8 @@ async function getAnswer(question) {
     });
 
     const chain = new RetrievalQAChain({
-      combineDocumentsChain: loadQARefineChain(model),
-      retriever: vectorStore.asRetriever((search_kwargs = { k: 1 })),
+      combineDocumentsChain: loadQAStuffChain(model, { prompt }),
+      retriever: vectorStore.asRetriever(),
     });
 
     const res = await chain.invoke({
@@ -73,25 +86,7 @@ async function getAnswer(question) {
       chat_history: chatHistory,
     });
 
-    let outputText = followUpRes.output_text;
-
-    // Strip "Based on the context information provided," and everything before it
-    const contextInfoIndex = outputText.indexOf(
-      "Based on the context information provided,"
-    );
-    if (contextInfoIndex !== -1) {
-      outputText = outputText.substring(
-        contextInfoIndex + "Based on the context information provided, ".length
-      );
-    }
-
-    // Strip any leading newline characters
-    outputText = outputText.trimStart();
-
-    // Now, strip everything before the first newline character in the remaining output text
-    outputText = outputText.substring(outputText.indexOf("\n") + 1);
-
-    return outputText;
+    return followUpRes.text;
   } catch (error) {
     console.error(error);
     throw new Error("Internal Server Error");
