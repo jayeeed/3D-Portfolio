@@ -6,6 +6,9 @@ const {
   getAnswerController,
 } = require("../controllers/chatController");
 
+const cors = require("cors");
+router.use(cors());
+
 router.get("/train", trainBotController);
 
 router.post("/chat", getAnswerController);
