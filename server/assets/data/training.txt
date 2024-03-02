@@ -9,7 +9,7 @@
         Web Links: 
         - GitHub: https://github.com/jayeeed
         - LinkedIn: https://www.linkedin.com/in/xayed
-        - Portfolio: https://xy3d.netlify.app/
+        - Portfolio: https://jayeeed.netlify.app
         - Code: https://leetcode.com/jayed990
 
         Skills: 
@@ -17,7 +17,7 @@
         - Machine Learning
         - Business Intelligence
         - Research
-        - React Js
+        - ReactJs
         - NodeJs
         - Django
         - Flask
@@ -33,6 +33,33 @@
         and implementing cutting-edge algorithms. Proficient in the MERN stack, particularly adept at leveraging React for front-end development.
         Committed to creating intelligent systems that enhance efficiency, decision-making, and user experiences, while staying at the forefront of AI advancements.
 
+        Projects:
+        - Langchain SaaS:
+          Chatbot Implementations in the form of SaaS.
+          - BasicBot: For Individual query.
+          - ContextBot: For Continuity of chat.
+          - WebBot: For Search & Analyze using Web Search.
+          - PDFBot: For Read & Response from single PDF.
+          - DirBot: For Read & Response from a list of PDF.
+
+        - Recommendation System:
+          Recommend Products/Services using User’s:
+          - Purchase History
+          - Location
+          - Preferences
+
+        - Facial Attendance System:
+          Smart Attendance System using Computer Vision.
+          - Capture & Store Face data.
+          - Detect & Match Faces.
+          - Log all information in DB.
+
+        - Sentiment Analysis:
+          Analyze Sentiment from reviews.
+          - Fetch Reviews from DB.
+          - Analyze & Score reviews.
+          - Save processed data into DB.
+
         Experience:
         - Company: Ipsita Computers Pte Ltd.
           Designation: Jr. Software Engineer
@@ -41,7 +68,7 @@
           - Supported AI/ML model development, ensuring effective implementation.
           - Contributed to algorithm research and development, optimizing model efficiency.
           - Evaluated model performance, iteratively improving accuracy and effectiveness.
-          - Utilized React for front-end and Django for back-end development.
+          - Utilized Flask and Django for API integration.
           - Integrated MongoDB/PostgreSQL for robust and scalable databases.
 
         Education:

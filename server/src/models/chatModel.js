@@ -17,7 +17,6 @@ async function trainBot() {
 
     const textSplitter = new RecursiveCharacterTextSplitter({
       chunkSize: 1000,
-      chunkOverlap: 0,
     });
 
     const docs = await textSplitter.createDocuments([trainingText]);
@@ -62,10 +61,37 @@ async function getAnswer(question) {
       retriever: vectorStore.asRetriever((search_kwargs = { k: 1 })),
     });
 
-    const result = await chain.invoke({
+    const res = await chain.invoke({
       query: question,
+      chat_history: "",
     });
-    return result.output_text;
+
+    const chatHistory = `${question}\n${res.text}`;
+
+    const followUpRes = await chain.invoke({
+      query: question,
+      chat_history: chatHistory,
+    });
+
+    let outputText = followUpRes.output_text;
+
+    // Strip "Based on the context information provided," and everything before it
+    const contextInfoIndex = outputText.indexOf(
+      "Based on the context information provided,"
+    );
+    if (contextInfoIndex !== -1) {
+      outputText = outputText.substring(
+        contextInfoIndex + "Based on the context information provided, ".length
+      );
+    }
+
+    // Strip any leading newline characters
+    outputText = outputText.trimStart();
+
+    // Now, strip everything before the first newline character in the remaining output text
+    outputText = outputText.substring(outputText.indexOf("\n") + 1);
+
+    return outputText;
   } catch (error) {
     console.error(error);
     throw new Error("Internal Server Error");
