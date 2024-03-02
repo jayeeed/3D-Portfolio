@@ -1,5 +1,6 @@
 import { useState } from "react";
 import "@chatscope/chat-ui-kit-styles/dist/default/styles.min.css";
+import { HiOutlineChatAlt } from "react-icons/hi";
 
 import {
   MainContainer,
@@ -33,13 +34,13 @@ const Chat = ({ messages, isTyping, handleSend }) => (
   </MainContainer>
 );
 
-const ToggleChatButton = ({ onClick, showChat }) => (
+const ToggleChatButton = ({ onClick }) => (
   <button
-    className="bg-purple-600 hover:bg-purple-900 text-white text-xl font-semibold py-6 px-4 rounded-full 
-    transition-transform transform duration-500 ease-in-out"
+    className="bg-purple-600 hover:bg-purple-800 py-4 px-4 rounded-full 
+    transition-transform transform duration-600 ease-in-out"
     onClick={onClick}
   >
-    {showChat ? "Close" : "Chat!!"}
+    <HiOutlineChatAlt className="text-5xl" />
   </button>
 );
 
