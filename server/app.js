@@ -12,7 +12,7 @@ const port = process.env.PORT;
 app.use(bodyParser.json());
 
 // cors
-app.use(cors());
+app.use(cors({ origin: "*" }));
 
 // routes
 const emailRoutes = require("./src/routes/emailRoutes");
