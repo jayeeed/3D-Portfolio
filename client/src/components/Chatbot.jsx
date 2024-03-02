@@ -33,12 +33,6 @@ const Chat = ({ messages, isTyping, handleSend }) => (
   </MainContainer>
 );
 
-Chat.propTypes = {
-  messages: PropTypes.array.isRequired,
-  isTyping: PropTypes.bool.isRequired,
-  handleSend: PropTypes.func.isRequired,
-};
-
 const ToggleChatButton = ({ onClick, showChat }) => (
   <button
     className="bg-purple-600 hover:bg-purple-900 text-white text-xl font-semibold py-6 px-4 rounded-full 
@@ -49,15 +43,11 @@ const ToggleChatButton = ({ onClick, showChat }) => (
   </button>
 );
 
-ToggleChatButton.propTypes = {
-  onClick: PropTypes.func.isRequired,
-  showChat: PropTypes.bool.isRequired,
-};
-
 const Chatbot = () => {
   const [messages, setMessages] = useState([
     {
-      message: "Hello, I'm Assistant, Assistant of Jayed! Ask me anything!",
+      message:
+        "Hello, I'm Assistant, Assistant of Jayed! Ask me anything!\nN.B: Difference between 2 messages must be more than 10 seconds. (Free delployment limitation)",
       sentTime: "just now",
       sender: "Assistant",
     },
@@ -124,3 +114,14 @@ const Chatbot = () => {
 };
 
 export default Chatbot;
+
+Chat.propTypes = {
+  messages: PropTypes.array.isRequired,
+  isTyping: PropTypes.bool.isRequired,
+  handleSend: PropTypes.func.isRequired,
+};
+
+ToggleChatButton.propTypes = {
+  onClick: PropTypes.func.isRequired,
+  showChat: PropTypes.bool.isRequired,
+};
