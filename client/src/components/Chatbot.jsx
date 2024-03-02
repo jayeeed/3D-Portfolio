@@ -19,7 +19,7 @@ const Chat = ({ messages, isTyping, handleSend }) => (
         className="max-h-80 p-2 overflow-scroll md:overflow-x-hidden font-semibold"
         scrollBehavior="smooth"
         typingIndicator={
-          isTyping ? <TypingIndicator content="AI Mama is typing" /> : null
+          isTyping ? <TypingIndicator content="Assistant is typing" /> : null
         }
       >
         <div className="max-h-full overflow-y-auto font-semibold">
@@ -57,9 +57,9 @@ ToggleChatButton.propTypes = {
 const Chatbot = () => {
   const [messages, setMessages] = useState([
     {
-      message: "Hello, I'm AI Mama, Assistant of Jayed! Ask me anything!",
+      message: "Hello, I'm Assistant, Assistant of Jayed! Ask me anything!",
       sentTime: "just now",
-      sender: "AI Mama",
+      sender: "Assistant",
     },
   ]);
 
@@ -95,7 +95,7 @@ const Chatbot = () => {
         ...newMessages,
         {
           message: data.answer,
-          sender: "AI Mama",
+          sender: "Assistant",
         },
       ]);
 
