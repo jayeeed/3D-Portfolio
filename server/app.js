@@ -17,7 +17,7 @@ app.use(cors());
 // routes
 const emailRoutes = require("./src/routes/emailRoutes");
 const welcomeRoutes = require("./src/routes/welcomeRoutes");
-const chatRoute = require("./src/routes/chatRoute");
+const chatRoute = require("./src/routes/chatRoutes");
 
 app.use(emailRoutes);
 app.use(welcomeRoutes);
