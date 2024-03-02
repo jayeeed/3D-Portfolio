@@ -12,25 +12,7 @@ const port = process.env.PORT;
 app.use(bodyParser.json());
 
 // cors
-// app.use(cors());
-// Add CORS middleware
-app.use((req, res, next) => {
-  res.setHeader(
-    "Access-Control-Allow-Origin",
-    "https://jayeeed.netlify.app",
-    "https://xy3d.vercel.app/"
-  );
-  res.setHeader(
-    "Access-Control-Allow-Methods",
-    "GET, POST, OPTIONS, PUT, PATCH, DELETE"
-  );
-  res.setHeader(
-    "Access-Control-Allow-Headers",
-    "X-Requested-With,content-type"
-  );
-  res.setHeader("Access-Control-Allow-Credentials", true);
-  next();
-});
+app.use(cors());
 
 // routes
 const emailRoutes = require("./src/routes/emailRoutes");

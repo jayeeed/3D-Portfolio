@@ -79,15 +79,18 @@ const Chatbot = () => {
     setIsTyping(true);
 
     try {
-      const API = import.meta.env.VITE_APP_API;
-
-      const response = await fetch(API + "/chat", {
-        method: "POST",
-        headers: {
-          "Content-Type": "application/json",
-        },
-        body: JSON.stringify({ question: message }),
-      });
+      const response = await fetch(
+        "https://cors-anywhere.herokuapp.com/" +
+          import.meta.env.VITE_APP_API +
+          "/chat",
+        {
+          method: "POST",
+          headers: {
+            "Content-Type": "application/json",
+          },
+          body: JSON.stringify({ question: message }),
+        }
+      );
 
       const data = await response.json();
 
