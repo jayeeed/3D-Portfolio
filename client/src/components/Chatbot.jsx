@@ -19,17 +19,24 @@ const Chat = ({ messages, isTyping, handleSend }) => (
       <MessageList
         className="max-h-80 p-2 overflow-scroll md:overflow-x-hidden font-semibold"
         scrollBehavior="smooth"
-        typingIndicator={
-          isTyping ? <TypingIndicator content="Assistant is typing" /> : null
-        }
       >
         <div className="max-h-full overflow-y-auto font-semibold">
           {messages.map((message, i) => (
             <Message key={i} model={message} />
           ))}
         </div>
+        {isTyping && (
+          <div className="p-2">
+            <TypingIndicator content="Assistant is typing" />
+          </div>
+        )}
       </MessageList>
-      <MessageInput placeholder="Type message here" onSend={handleSend} />
+      <MessageInput
+        placeholder="Type message here"
+        onSend={handleSend}
+        attachButton={false}
+        scrollToBottom={true}
+      />
     </ChatContainer>
   </MainContainer>
 );
