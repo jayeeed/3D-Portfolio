@@ -6,9 +6,14 @@ const { RecursiveCharacterTextSplitter } = require("langchain/text_splitter");
 const { RetrievalQAChain, loadQAStuffChain } = require("langchain/chains");
 const { HNSWLib } = require("@langchain/community/vectorstores/hnswlib");
 const { PromptTemplate } = require("@langchain/core/prompts");
+const { BufferMemory } = require("langchain/memory");
+const { ConversationChain } = require("langchain/chains");
 
 const trainingTextPath = path.join(__dirname, "../../assets/data/training.txt");
 const vectorStorePath = path.join(__dirname, "../../hnswlib");
+
+const apikey = process.env.OPENAI_API_KEY;
+const embeddings = new OpenAIEmbeddings();
 
 async function trainBot() {
   try {
@@ -20,7 +25,7 @@ async function trainBot() {
 
     const docs = await textSplitter.createDocuments([trainingText]);
 
-    const vectorStore = await HNSWLib.fromDocuments(docs);
+    const vectorStore = await HNSWLib.fromDocuments(docs, embeddings);
 
     if (!fs.existsSync(vectorStorePath)) {
       fs.mkdirSync(vectorStorePath);
@@ -38,16 +43,12 @@ async function trainBot() {
 
 async function getAnswer(question) {
   try {
-    const apikey = process.env.OPENAI_API_KEY;
-    const embeddings = new OpenAIEmbeddings();
+    const promptTemplate = `You are a helpful assistant which will respond in as it is Myself. If {question} contains "you" reply on behalf of me. If you don't know the answer, just say that you don't know, don't try to make up an answer, don't tell you're a Ai or bot or anything like that. Try to answer as short as you can and answer in bullet points if relevant.
 
-    const promptTemplate = `You are a helpful assistant which will respond in as it is Myself. If {question} contains "you" reply on behalf of me. If you don't know the answer, just say that you don't know, don't try to make up an answer, don't tell you're a Ai or bot or anything like that. Try to answer as short as you can and answer in bullet points if relevant. [N.B: Always answer in Bengali.]
-    
-    Example Question: "what is your name?"
-    Example Answer: "আমার নাম জায়েদ বিন জাহাঙ্গীর।"
-
-    Question:{question}
-    Answer:`;
+    Chat History:
+    {chat_history}
+    Follow Up Input: {question}
+    Standalone question:`;
 
     const prompt = PromptTemplate.fromTemplate(promptTemplate);
 
@@ -64,9 +65,13 @@ async function getAnswer(question) {
       presence_penalty: 0,
     });
 
+    const memory = new BufferMemory();
+    // const chain = new ConversationChain({ llm: model, memory: memory });
+
     const chain = new RetrievalQAChain({
       combineDocumentsChain: loadQAStuffChain(model, { prompt }),
       retriever: vectorStore.asRetriever(),
+      // memory: memory,
     });
 
     const res = await chain.invoke({
