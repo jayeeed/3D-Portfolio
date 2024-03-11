@@ -12,12 +12,7 @@ const apikey = process.env.OPENAI_API_KEY;
 const model = new ChatOpenAI({
   openAIApiKey: apikey,
   modelName: "gpt-3.5-turbo-0125",
-  max_tokens: 1000,
   temperature: 0.1,
-  top_k: 0,
-  top_p: 0.95,
-  frequency_penalty: 0,
-  presence_penalty: 0,
 });
 
 const memory = new BufferMemory({
@@ -30,11 +25,10 @@ const chain = new ConversationChain({
   memory: memory,
   verbose: true,
   prompt: PromptTemplate.fromTemplate(
-    `you are a math assistant. take the input {input} and return the answer.you are a math assistant.
-
+    `You are a math assistant. User question: {question}. Return only the answer nothing else.
     Chat History:
     {chat_history}
-    Follow Up Input: {input}
+    Follow Up question: {question}
     Standalone question:`
   ),
 });
@@ -44,15 +38,16 @@ app.use(express.json());
 // Define a route to handle incoming POST requests
 app.post("/chat", async (req, res) => {
   try {
-    const { input } = req.body;
-    if (!input) {
-      return res.status(400).json({ error: "Input is required" });
+    const { question } = req.body;
+    if (!question) {
+      return res.status(400).json({ error: "question is required" });
     }
 
-    console.log("Memory object:", memory); // Log memory object
+    const result = await chain.invoke({ question });
 
-    const result = await chain.invoke({ input });
-    return res.json({ answer: result.response });
+    return res.json({
+      answer: result.response,
+    });
   } catch (error) {
     console.error("Error:", error);
     return res.status(500).json({ error: "Internal server error" });
@@ -60,7 +55,7 @@ app.post("/chat", async (req, res) => {
 });
 
 // Start the Express server
-const PORT = process.env.PORT || 3000;
+const PORT = process.env.PORT || 3001;
 app.listen(PORT, () => {
   console.log(`Server is running on port ${PORT}`);
 });

@@ -7,7 +7,6 @@ const { RetrievalQAChain, loadQAStuffChain } = require("langchain/chains");
 const { HNSWLib } = require("@langchain/community/vectorstores/hnswlib");
 const { PromptTemplate } = require("@langchain/core/prompts");
 const { BufferMemory } = require("langchain/memory");
-const { ConversationChain } = require("langchain/chains");
 
 const trainingTextPath = path.join(__dirname, "../../assets/data/training.txt");
 const vectorStorePath = path.join(__dirname, "../../hnswlib");
@@ -66,34 +65,15 @@ async function getAnswer(question) {
     });
 
     const memory = new BufferMemory();
-    // const chain = new ConversationChain({ llm: model, memory: memory });
 
     const chain = new RetrievalQAChain({
-      combineDocumentsChain: loadQAStuffChain(model, { prompt }),
+      combineDocumentsChain: loadQAStuffChain(model, memory, { prompt }),
       retriever: vectorStore.asRetriever(),
-      // memory: memory,
     });
 
-    const res = await chain.invoke({
-      query: question,
-      chat_history: "",
-    });
+    const res = await chain.invoke({ query: question });
 
-    const chatHistory = `"User: "${question}\n"AI: "${res.text}`;
-
-    const followUpRes = await chain.invoke({
-      query: question,
-      chat_history: chatHistory,
-      callbacks: [
-        {
-          handleLLMEnd(output) {
-            console.log("GENERATION OUTPUT:", JSON.stringify(output, null, 2));
-          },
-        },
-      ],
-    });
-
-    return followUpRes.text;
+    return res.text;
   } catch (error) {
     console.error(error);
     throw new Error("Internal Server Error");
