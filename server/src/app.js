@@ -15,9 +15,9 @@ app.use(bodyParser.json());
 app.use(cors());
 
 // routes
-const emailRoutes = require("./src/routes/emailRoutes");
-const welcomeRoutes = require("./src/routes/welcomeRoutes");
-const chatRoute = require("./src/routes/chatRoutes");
+const emailRoutes = require("./routes/emailRoutes");
+const welcomeRoutes = require("./routes/welcomeRoutes");
+const chatRoute = require("./routes/chatRoutes");
 
 app.use(emailRoutes);
 app.use(welcomeRoutes);
