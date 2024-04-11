@@ -3,6 +3,6 @@ const router = express.Router();
 
 const { getOllamaController } = require("../controllers/chatController");
 
-router.post("/query", getOllamaController);
+router.post("/chat", getOllamaController);
 
 module.exports = router;
