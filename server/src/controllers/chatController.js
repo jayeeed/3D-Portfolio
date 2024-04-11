@@ -8,7 +8,7 @@ async function getOllamaController(req, res) {
       req.body
     );
     // Send the response received from the endpoint back to the client
-    return response.status(200).json({ answer });
+    res.json(response.data);
   } catch (error) {
     // Handle errors
     console.error("Error:", error.message);
