@@ -1,13 +1,8 @@
 const express = require("express");
 const router = express.Router();
 
-const {
-  trainBotController,
-  getAnswerController,
-} = require("../controllers/chatController");
+const { getOllamaController } = require("../controllers/chatController");
 
-router.get("/train", trainBotController);
-
-router.post("/chat", getAnswerController);
+router.post("/query", getOllamaController);
 
 module.exports = router;

@@ -1,25 +1,21 @@
-const { trainBot, getAnswer } = require("../models/chatModel");
+const axios = require("axios");
 
-async function trainBotController(req, res) {
+async function getOllamaController(req, res) {
   try {
-    const vectorStore = await trainBot();
-    return res.status(200).json({ message: vectorStore });
+    // Forward the request to the provided endpoint
+    const response = await axios.post(
+      "http://rational-bison-kind.ngrok-free.app/query",
+      req.body
+    );
+    // Send the response received from the endpoint back to the client
+    res.json(response.data);
   } catch (error) {
-    console.error(error);
-    return res.status(500).json({ error: "Internal Server Error" });
+    // Handle errors
+    console.error("Error:", error.message);
+    res.status(500).json({ error: "Internal Server Error" });
   }
 }
 
-async function getAnswerController(req, res) {
-  const { question } = req.body;
-
-  try {
-    const answer = await getAnswer(question);
-    return res.status(200).json({ answer });
-  } catch (error) {
-    console.error(error);
-    return res.status(500).json({ error: "Internal Server Error" });
-  }
-}
-
-module.exports = { trainBotController, getAnswerController };
+module.exports = {
+  getOllamaController,
+};
