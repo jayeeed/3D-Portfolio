@@ -11,6 +11,7 @@ import {
   Sidebar,
   Tech,
   Works,
+  Blogs,
   StarsCanvas,
   Footer,
   Chatbot,
@@ -45,6 +46,7 @@ const App = () => {
         {isSmallScreen ? null : <Tech />}
         <Works />
         <Feedbacks />
+        <Blogs />
         <div className="relative z-0">
           <Contact />
           <StarsCanvas />

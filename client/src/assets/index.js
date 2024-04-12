@@ -6,6 +6,7 @@ import soft from "./soft.png";
 import ml from "./ml.png";
 
 import github from "./github.png";
+import live from "./live.png";
 import menu from "./menu.svg";
 import close from "./close.svg";
 
@@ -41,6 +42,7 @@ export {
   soft,
   ml,
   github,
+  live,
   menu,
   close,
   css,
