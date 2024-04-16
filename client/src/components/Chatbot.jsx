@@ -77,7 +77,7 @@ const Chatbot = () => {
     setIsTyping(true);
 
     try {
-      const response = await fetch(import.meta.env.VITE_APP_API + "/chat", {
+      const response = await fetch(import.meta.env.CHAT_AP + "/query", {
         method: "POST",
         headers: {
           "Content-Type": "application/json",
