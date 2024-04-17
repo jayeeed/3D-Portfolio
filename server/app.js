@@ -14,10 +14,11 @@ app.use(bodyParser.json());
 // cors
 app.use(
   cors({
-    origin: process.env.CLIENT,
+    origin: [process.env.CLIENT],
+    method: ["GET", "POST", "DELETE", "PUT", "OPTIONS", "PATCH"],
+    credentials: true,
   })
 );
-
 // routes
 const emailRoutes = require("./src/routes/emailRoutes");
 const welcomeRoutes = require("./src/routes/welcomeRoutes");
