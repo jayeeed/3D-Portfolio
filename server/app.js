@@ -16,7 +16,6 @@ app.use(
   cors({
     origin: [process.env.CLIENT],
     method: ["GET", "POST", "DELETE", "PUT", "OPTIONS", "PATCH"],
-    credentials: true,
   })
 );
 // routes
