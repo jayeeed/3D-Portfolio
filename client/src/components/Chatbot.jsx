@@ -55,7 +55,7 @@ const Chatbot = () => {
   const [messages, setMessages] = useState([
     {
       message:
-        "Hello, I'm Assistant, Assistant of Jayed! Ask me anything!\nN.B: Difference between 2 messages must be more than 10 seconds. (Free delployment limitation)",
+        "Hello, I'm Assistant, Assistant of Jayed! Ask me anything! [Offline]",
       sentTime: "just now",
       sender: "Assistant",
     },

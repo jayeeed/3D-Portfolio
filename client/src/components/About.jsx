@@ -7,7 +7,7 @@ import { Tilt } from "react-tilt";
 import { motion } from "framer-motion";
 
 import { styles } from "../styles";
-import { skills, prime, pop, services } from "../constants";
+import { prime, services } from "../constants";
 import { SectionWrapper } from "../hoc";
 import { fadeIn, textVariant } from "../utils/motion";
 
@@ -43,26 +43,30 @@ const About = () => {
         <h2 className={styles.sectionHeadText}>Overview.</h2>
       </motion.div>
 
-      <div className="flex flex-col lg:flex-row items-center lg:items-start gap-20">
+      <div className="flex flex-col lg:flex-row items-center lg:items-start gap-14">
         <motion.p
           variants={fadeIn("", "", 0.1, 1)}
           className={`${styles.introText} lg:mr-6`}
         >
-          I'm a skilled software developer with experience in{" "}
-          <span className={styles.primeText}>{prime.join(" & ")}</span> My
-          passion lies in creating innovative solutions to complex problems
-          using cutting-edge technologies like{" "}
-          <span className={styles.skillsText}>{skills.join(", ")}</span> and
-          more. I'm a quick learner and collaborate closely with clients to
-          create <span className={styles.popText}>{pop.join(", ")}</span>{" "}
-          solutions that solve real-world problems. Let's work together to bring
-          your ideas to life!
+          Passionate and results-driven professional with expertise in{" "}
+          <span className={styles.primeText}>
+            {prime.slice(0, -1).join(", ")}
+          </span>{" "}
+          & <span className={styles.primeText}>{prime.slice(-1)}</span>. Adept
+          at developing innovative ML models, LLM/NLP implementation, building
+          robust software solutions, and ensuring the highest quality through
+          meticulous testing and QA practices. With a keen sense of
+          understanding complex problems, I thrive in dynamic environments,
+          driving projects from conception to completion. My dedication to
+          continuous learning and improvement fuels my commitment to delivering
+          exceptional results and advancing technological frontiers. Let's
+          connect and explore opportunities to innovate and excel together!
         </motion.p>
 
         {/* Circular Image Holder on the right */}
         <motion.div
           variants={fadeIn("", "", 0.1, 1)}
-          className="w-80 md:h-80 rounded-full overflow-hidden mx-auto lg:ml-6 mb-6 lg:mb-0"
+          className="w-60 md:h-70 rounded-full overflow-hidden mx-auto lg:ml-6 mb-6 lg:mb-0"
         >
           <img
             src="./me.jpg"
@@ -72,7 +76,7 @@ const About = () => {
         </motion.div>
       </div>
 
-      <div className="mt-20 flex flex-wrap gap-10">
+      <div className="mt-28 flex flex-wrap gap-10">
         {services.map((service, index) => (
           <ServiceCard key={service.title} index={index} {...service} />
         ))}

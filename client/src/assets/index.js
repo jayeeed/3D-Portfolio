@@ -11,6 +11,7 @@ import close from "./close.svg";
 
 import stamford from "./company/stamford.png";
 import ipsita from "./company/ipsita.png";
+import a1qa from "./company/a1qa.jpeg";
 
 import css from "./tech/css.png";
 import docker from "./tech/docker.png";
@@ -58,6 +59,7 @@ export {
   threejs,
   stamford,
   ipsita,
+  a1qa,
   java,
   facial,
   gallery,

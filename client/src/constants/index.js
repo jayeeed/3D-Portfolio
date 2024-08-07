@@ -16,6 +16,7 @@ import {
   docker,
   stamford,
   ipsita,
+  a1qa,
   java,
   facial,
   gallery,
@@ -71,43 +72,18 @@ export const navLinks = [
   },
 ];
 
-const prime = ["Machine Learning", "Web Development."];
-
-const pop = ["Eficient", "Scalable", "User-Friendly"];
+const prime = [
+  "Machine Learning",
+  "Data Science",
+  "Software Engineering",
+  "Software Quality Assurance",
+];
 
 const skills = [
-  "TensorFlow",
-  "PyTorch",
-  "Python",
-  "Computer Vision",
-  "Business Intelligence Tools",
-  "Data Analysis",
-  "Data Visualization",
-  "JavaScript",
-  "ReactJS",
-  "NodeJS",
-  "Express",
-  "MongoDB",
-  "MySQL",
-  "Postgres",
-  "Big Data",
-  "Kubernetes",
-  "AWS",
-  "GCP",
-  "Azure",
-  "Firebase",
-  "REST API",
-  "Docker",
-  "ETL",
-  "CI/CD",
-  "DevOps",
-  "Agile Methodology",
-  "Scrum Framework",
-  "PM Tolls",
-  "GitHub",
-  "GitLab",
-  "Nginx",
-  "Linux OS",
+  "Machine Learning",
+  "Data Science",
+  "Software Engineering",
+  "Software Quality Assurance",
 ];
 
 const services = [
@@ -186,6 +162,34 @@ const technologies = [
 
 const experiences = [
   {
+    title: "Software Quality Assurance Engineer",
+    company_name: "a1qa",
+    icon: a1qa,
+    iconBg: "#FFFFFF",
+    date: "April 2024 - Present",
+    points: [
+      "Designed and implemented test plans, test cases,manual test and automated test scripts for web and mobile applications.",
+      "Utilized JIRA for bug tracking and managed the defect lifecycle from identification to resolution.",
+      "Performed regression testing to ensure product quality after code changes.",
+      "Participated in daily stand-ups and sprint planning sessions as part of an Agile team.",
+    ],
+  },
+
+  {
+    title: "Jr. Software Engineer",
+    company_name: "Tactsoft",
+    icon: ipsita,
+    iconBg: "#FFFFFF",
+    date: "September 2023 - March 2024",
+    points: [
+      "Assisted in developing and testing softwareapplications under the guidance of seniors.",
+      "Conducted unit testing and debugging to ensure high-quality code",
+      "Participated in code reviews and contributed to improving coding standards",
+      "Collaborated with cross-functional teams to support various stages of the software development lifecycle.",
+    ],
+  },
+
+  {
     title: "Research Assistant",
     company_name: "Stamford University Bangladesh",
     icon: stamford,
@@ -196,19 +200,6 @@ const experiences = [
       "Collaborating with felow associates on various discussion on ML/AI research works.",
       "Implementing ML/AI models, tuning and tweaking for ensuring most effective results.",
       "Participating in paper reviews and providing constructive feedback to felow researchers.",
-    ],
-  },
-  {
-    title: "Jr. Software Engineer",
-    company_name: "Ipsita Computers Pte Ltd",
-    icon: ipsita,
-    iconBg: "#FFFFFF",
-    date: "July 2023 - Present",
-    points: [
-      "Developing and maintaining web applications using React.js and other related technologies.",
-      "Collaborating with cross-functional teams including designers, product managers, and other developers to create high-quality products.",
-      "Implementing responsive design and ensuring cross-browser compatibility.",
-      "Participating in code reviews and providing constructive feedback to other developers.",
     ],
   },
 ];
@@ -310,7 +301,6 @@ const projects = [
 export {
   skills,
   prime,
-  pop,
   services,
   technologies,
   experiences,

@@ -24,11 +24,11 @@ const Hero = () => {
           <TypeAnimation
             sequence={[
               // Same substring at the start will only be typed once, initially
-              "I Develop Machine Learning API",
+              "I Do Machine Learning",
               1000,
-              "I Develop Web Application",
+              "I Do Software Development",
               1000,
-              "I Develop Business Intelligence",
+              "I Do Software Quality Assurance",
               1000,
             ]}
             speed={20}

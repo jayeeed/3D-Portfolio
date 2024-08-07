@@ -16,8 +16,7 @@ const styles = {
     "mt-4 text-secondary text-[16px] max-w-3xl leading-[30px] text-justify",
 
   skillsText: "text-green-300 text-[17px] font-semibold",
-  primeText: "text-yellow-300 text-[18px] font-bold",
-  popText: "text-yellow-300 text-[18px] font-bold",
+  primeText: "text-green-500 text-[18px] font-bold",
 };
 
 export { styles };

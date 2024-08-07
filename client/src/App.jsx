@@ -1,3 +1,4 @@
+/* eslint-disable no-unused-vars */
 import { useState, useEffect } from "react";
 import { BrowserRouter } from "react-router-dom";
 
@@ -42,9 +43,9 @@ const App = () => {
         <Sidebar />
         <About />
         <Experience />
-        {isSmallScreen ? null : <Tech />}
+        {/* {isSmallScreen ? null : <Tech />} */}
         <Works />
-        <Feedbacks />
+        {/* <Feedbacks /> */}
         <div className="relative z-0">
           <Contact />
           <StarsCanvas />
