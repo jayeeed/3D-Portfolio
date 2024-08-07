@@ -76,7 +76,7 @@ const Navbar = () => {
               <a
                 href={
                   nav.title === "Resume"
-                    ? "https://drive.google.com/file/d/1anV_Jgeq3sNJHL5k8SV6mAjYF-WE3C8m/view?usp=sharing"
+                    ? "https://drive.google.com/file/d/1m1DeXM-GTj7VeXpbAV8ZDKE_GG05c4j3/view?usp=sharing"
                     : `#${nav.id}`
                 }
                 target={nav.title === "Resume" ? "_blank" : ""}
