@@ -82,7 +82,7 @@ const Chatbot = () => {
         headers: {
           "Content-Type": "application/json",
         },
-        body: JSON.stringify({ question: message }),
+        body: JSON.stringify({ query: message }),
       });
 
       const data = await response.json();

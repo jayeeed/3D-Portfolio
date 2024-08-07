@@ -12,6 +12,7 @@ import {
   Sidebar,
   Tech,
   Works,
+  Blogs,
   StarsCanvas,
   Footer,
   Chatbot,

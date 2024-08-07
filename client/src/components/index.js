@@ -12,6 +12,7 @@ import Tech from "./Tech";
 import Experience from "./Experience";
 import Works from "./Works";
 import Feedbacks from "./Feedbacks";
+import Blogs from "./Blogs";
 import Contact from "./Contact";
 import Sidebar from "./Sidebar";
 import Footer from "./Footer";
@@ -26,6 +27,7 @@ export {
   Experience,
   Works,
   Feedbacks,
+  Blogs,
   Contact,
   Footer,
   EarthCanvas,
