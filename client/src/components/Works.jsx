@@ -39,14 +39,14 @@ const ProjectCard = ({
           <div className="absolute inset-0 flex justify-end m-2 gap-4 card-img_hover">
             <div
               onClick={() => window.open(live_link, "_blank")}
-              className="w-20 h-10 rounded-full flex
+              className="absolute top-0 left-0 w-20 h-10 rounded-full flex
                justify-center items-center cursor-pointer"
             >
               <img src={live} alt="live" className="w-full" />
             </div>
             <div
               onClick={() => window.open(source_code_link, "_blank")}
-              className="black-gradient w-10 h-10 rounded-full flex
+              className="black-gradient absolute top-0 right-0 w-10 h-10 rounded-full flex
                justify-center items-center cursor-pointer"
             >
               <img

@@ -257,7 +257,7 @@ const projects = [
     image: java,
     source_code_link:
       "https://github.com/xy3d/Requisition-Statement-Log-with-print-receipt-func-JAVA",
-    live_link: null,
+    live_link: "https://jayeeed.netlify.app/",
   },
   {
     name: "Facial Attendance",
@@ -279,7 +279,7 @@ const projects = [
     ],
     image: facial,
     source_code_link: "https://github.com/xy3d/FacialAttendance",
-    live_link: null,
+    live_link: "https://jayeeed.netlify.app/",
   },
   {
     name: "Photo Gallery",
@@ -301,73 +301,7 @@ const projects = [
     ],
     image: gallery,
     source_code_link: "https://github.com/jayeeed/Ollyo-Gallery",
-    live_link: null,
-  },
-  {
-    name: "Photo Gallery",
-    description: `A fully responsive web application that can view images, sort their positions, delete individually or multiples,
-       upload images and other essential functionalities in a very modern fashion photo gallery structure.`,
-    tags: [
-      {
-        name: "react",
-        color: "blue-text-gradient",
-      },
-      {
-        name: "vite",
-        color: "green-text-gradient",
-      },
-      {
-        name: "tailwind",
-        color: "pink-text-gradient",
-      },
-    ],
-    image: gallery,
-    source_code_link: "https://github.com/jayeeed/Ollyo-Gallery",
-    live_link: null,
-  },
-  {
-    name: "Photo Gallery",
-    description: `A fully responsive web application that can view images, sort their positions, delete individually or multiples,
-       upload images and other essential functionalities in a very modern fashion photo gallery structure.`,
-    tags: [
-      {
-        name: "react",
-        color: "blue-text-gradient",
-      },
-      {
-        name: "vite",
-        color: "green-text-gradient",
-      },
-      {
-        name: "tailwind",
-        color: "pink-text-gradient",
-      },
-    ],
-    image: gallery,
-    source_code_link: "https://github.com/jayeeed/Ollyo-Gallery",
-    live_link: null,
-  },
-  {
-    name: "Photo Gallery",
-    description: `A fully responsive web application that can view images, sort their positions, delete individually or multiples,
-       upload images and other essential functionalities in a very modern fashion photo gallery structure.`,
-    tags: [
-      {
-        name: "react",
-        color: "blue-text-gradient",
-      },
-      {
-        name: "vite",
-        color: "green-text-gradient",
-      },
-      {
-        name: "tailwind",
-        color: "pink-text-gradient",
-      },
-    ],
-    image: gallery,
-    source_code_link: "https://github.com/jayeeed/Ollyo-Gallery",
-    live_link: null,
+    live_link: "https://jayeeed.netlify.app/",
   },
 ];
 
