@@ -45,8 +45,8 @@ const App = () => {
         <About />
         <Experience />
         {/* {isSmallScreen ? null : <Tech />} */}
-        <Projects />
-        <Blogs />
+        {/* <Projects /> */}
+        {/* <Blogs /> */}
         {/* <Feedbacks /> */}
         <div className="relative z-0">
           <Contact />
