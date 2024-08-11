@@ -12,8 +12,7 @@ const Sidebar = () => {
         {socialMediaLinks.map((link) => (
           <li
             key={link.name}
-            className="w-[160px] h-[30px] flex justify-between items-center ml-[-100px] px-4 
-             rounded-md transition-transform transform hover:scale-125 active:scale-125"
+            className="w-[160px] h-[30px] flex justify-between items-center ml-[-100px] px-4 rounded-md transition-transform duration-700 transform hover:scale-150 active:scale-150"
           >
             <a
               target="_blank"

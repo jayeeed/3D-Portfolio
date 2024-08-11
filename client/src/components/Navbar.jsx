@@ -48,10 +48,7 @@ const Navbar = () => {
             className="w-12 h-12 object-contain transition-transform duration-500 ease-in-out hover:scale-125"
           />
 
-          <p
-            className="text-white text-[22px] p-2 font-semibold cursor-pointer flex transition-transform
-           duration-500 ease-in-out hover:text-yellow-200 hover:animate-pulse hover:scale-105"
-          >
+          <p className="text-white text-[22px] p-2 font-semibold cursor-pointer flex transition-transform duration-700 ease-in-out hover:text-yellow-200 hover:animate-pulse hover:scale-105">
             Jayed Bin Jahangir &nbsp;
             <span className="sm:block hidden"> | Software Engineer</span>
           </p>
@@ -66,7 +63,7 @@ const Navbar = () => {
                   ? "text-white"
                   : "text-secondary"
               } hover:text-white text-[18px] font-medium cursor-pointer transition-transform
-              duration-500 ease-in-out hover:scale-110`}
+              duration-700 ease-in-out hover:scale-125`}
               onClick={() => {
                 if (nav.title !== "Resume") {
                   setActive(nav.title);

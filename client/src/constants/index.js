@@ -51,20 +51,20 @@ const socialMediaLinks = [
 
 export const navLinks = [
   {
-    id: "blogs",
-    title: "Blogs",
-  },
-  {
     id: "about",
     title: "About",
   },
   {
-    id: "work",
+    id: "experience",
     title: "Experience",
   },
   {
-    id: "project",
+    id: "projects",
     title: "Projects",
+  },
+  {
+    id: "blogs",
+    title: "Blogs",
   },
   {
     id: "contact",
@@ -83,13 +83,6 @@ const prime = [
   "Software Quality Assurance",
 ];
 
-const skills = [
-  "Machine Learning",
-  "Data Science",
-  "Software Engineering",
-  "Software Quality Assurance",
-];
-
 const services = [
   {
     title: "Machine Learning",
@@ -100,12 +93,12 @@ const services = [
     icon: soft,
   },
   {
-    title: "Data Analysis & Business Intelligence",
-    icon: data,
-  },
-  {
     title: "Software Quality Assurance",
     icon: sqa,
+  },
+  {
+    title: "Data Science & Business Intelligence",
+    icon: data,
   },
 ];
 
@@ -306,7 +299,6 @@ const projects = [
 ];
 
 export {
-  skills,
   prime,
   services,
   technologies,

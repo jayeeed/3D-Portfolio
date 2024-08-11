@@ -11,7 +11,7 @@ import {
   Navbar,
   Sidebar,
   Tech,
-  Works,
+  Projects,
   Blogs,
   StarsCanvas,
   Footer,
@@ -45,7 +45,8 @@ const App = () => {
         <About />
         <Experience />
         {/* {isSmallScreen ? null : <Tech />} */}
-        <Works />
+        <Projects />
+        <Blogs />
         {/* <Feedbacks /> */}
         <div className="relative z-0">
           <Contact />

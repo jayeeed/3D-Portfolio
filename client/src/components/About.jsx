@@ -21,7 +21,7 @@ const ServiceCard = ({ index, title, icon }) => (
         options={{
           max: 45,
           scale: 1,
-          speed: 450,
+          speed: 1000,
         }}
         className="bg-tertiary rounded-[20px] py-5 px-12 min-h-[280px] flex justify-evenly items-center flex-col"
       >
@@ -53,7 +53,7 @@ const About = () => {
             {prime.slice(0, -1).join(", ")}
           </span>{" "}
           & <span className={styles.primeText}>{prime.slice(-1)}</span>. Adept
-          at developing innovative ML models, LLM/NLP implementation, building
+          at developing innovative ML models, LLM/NLP integration, building
           robust software solutions, and ensuring the highest quality through
           meticulous testing and QA practices. With a keen sense of
           understanding complex problems, I thrive in dynamic environments,
@@ -76,7 +76,7 @@ const About = () => {
         </motion.div>
       </div>
 
-      <div className="mt-28 flex flex-wrap gap-10">
+      <div className="justify-center mt-28 flex flex-wrap gap-10">
         {services.map((service, index) => (
           <ServiceCard key={service.title} index={index} {...service} />
         ))}
