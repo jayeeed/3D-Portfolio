@@ -8,11 +8,11 @@ const Sidebar = () => {
       className="hidden lg:flex sm:flex fixed flex-col top-[30%] left-0 bg-transparent
      font-semibold text-gray-300 z-50"
     >
-      <ul className="space-y-8">
+      <ul>
         {socialMediaLinks.map((link) => (
           <li
             key={link.name}
-            className="w-[160px] h-[30px] flex justify-between items-center ml-[-100px] px-4 rounded-md transition-transform duration-700 transform hover:scale-150 active:scale-150"
+            className="w-[100px] h-[70px] ml-[-30px] flex justify-between items-center rounded-md transition-transform duration-500 ease-in-out hover:scale-150"
           >
             <a
               target="_blank"
@@ -20,7 +20,7 @@ const Sidebar = () => {
               href={link.url}
             >
               <span className="px-3"></span>
-              <link.icon className="text-white-700" size={25} />
+              <link.icon className="text-white-700" size={30} />
             </a>
           </li>
         ))}

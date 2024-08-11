@@ -63,7 +63,7 @@ const Navbar = () => {
                   ? "text-white"
                   : "text-secondary"
               } hover:text-white text-[18px] font-medium cursor-pointer transition-transform
-              duration-700 ease-in-out hover:scale-125`}
+              duration-500 ease-in-out hover:scale-125`}
               onClick={() => {
                 if (nav.title !== "Resume") {
                   setActive(nav.title);

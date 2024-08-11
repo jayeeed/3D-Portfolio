@@ -52,8 +52,8 @@ const Blogs = () => {
   return (
     <>
       <motion.div variants={textVariant()}>
-        <p className={`${styles.sectionSubText} `}>Take a look at</p>
-        <h2 className={`${styles.sectionHeadText}`}>My Blogs.</h2>
+        <p className={`${styles.sectionSubText} `}>Take a look at my</p>
+        <h2 className={`${styles.sectionHeadText}`}>Blogs.</h2>
       </motion.div>
 
       <div className="mt-20 flex flex-wrap gap-7">
