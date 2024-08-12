@@ -5,7 +5,7 @@ import { socialMediaLinks } from "../constants";
 const Sidebar = () => {
   return (
     <div
-      className="hidden lg:flex sm:flex fixed flex-col top-[30%] left-0 bg-transparent
+      className="hidden lg:flex sm:flex fixed flex-col top-[28%] left-0 bg-transparent
      font-semibold text-gray-300 z-50"
     >
       <ul>

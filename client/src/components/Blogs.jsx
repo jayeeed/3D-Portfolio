@@ -10,58 +10,12 @@ import { SectionWrapper } from "../hoc";
 import { projects } from "../constants";
 import { fadeIn, textVariant } from "../utils/motion";
 
-const ProjectCard = ({ index, name, description, tags, image, onClick }) => {
-  return (
-    <motion.div
-      variants={fadeIn("up", "spring", index * 0.5, 0.75)}
-      onClick={onClick}
-    >
-      <Tilt
-        options={{
-          max: 25,
-          scale: 1,
-          speed: 500,
-        }}
-        className="bg-tertiary p-5 rounded-2xl sm:w-[360px] w-full cursor-pointer"
-      >
-        <div className="relative w-full h-[230px]">
-          <img
-            src={image}
-            alt="project_image"
-            className="w-full h-full object-cover rounded-2xl"
-          />
-        </div>
-
-        <div className="mt-5">
-          <h3 className="text-white font-bold text-[24px]">{name}</h3>
-          <p className="mt-2 text-secondary text-[14px]">{description}</p>
-        </div>
-
-        <div className="mt-4 flex flex-wrap gap-2">
-          {tags.map((tag) => (
-            <p
-              key={`${name}-${tag.name}`}
-              className={`text-[14px] ${tag.color}`}
-            >
-              #{tag.name}
-            </p>
-          ))}
-        </div>
-      </Tilt>
-    </motion.div>
-  );
-};
-
 const Blogs = () => {
   const [selectedProject, setSelectedProject] = useState(null);
 
-  const handleCardClick = (project) => {
-    setSelectedProject(project);
-  };
+  const handleCardClick = (project) => setSelectedProject(project);
 
-  const handleCloseWindow = () => {
-    setSelectedProject(null);
-  };
+  const handleCloseWindow = () => setSelectedProject(null);
 
   return (
     <>
@@ -72,28 +26,52 @@ const Blogs = () => {
 
       <div className="mt-20 justify-center flex flex-wrap gap-8">
         {projects.map((project, index) => (
-          <ProjectCard
-            key={`project-${index}`}
-            index={index}
-            {...project}
-            onClick={() => handleCardClick(project)}
-          />
+          <Tilt
+            key={project.name}
+            options={{ max: 25, scale: 1, speed: 500 }}
+            className="bg-tertiary p-5 rounded-2xl sm:w-[360px] w-full cursor-pointer"
+          >
+            <motion.div
+              variants={fadeIn("up", "spring", index * 0.5, 0.75)}
+              onClick={() => handleCardClick(project)}
+            >
+              <div className="relative w-full h-[230px">
+                <img
+                  src={project.image}
+                  alt={project.name}
+                  className="w-full h-full object-cover rounded-2xl"
+                />
+              </div>
+
+              <div className="mt-5">
+                <h3 className="text-white font-bold text-[24px]">
+                  {project.name}
+                </h3>
+                <p className="mt-2 text-secondary text-[14px]">
+                  {project.description}
+                </p>
+              </div>
+
+              <div className="mt-4 flex flex-wrap gap-2">
+                {project.tags.map((tag) => (
+                  <p
+                    key={`${project.name}-${tag.name}`}
+                    className={`text-[14px] ${tag.color}`}
+                  >
+                    #{tag.name}
+                  </p>
+                ))}
+              </div>
+            </motion.div>
+          </Tilt>
         ))}
       </div>
 
       {selectedProject && (
         <div className="mt-20 fixed inset-0 flex justify-center items-center z-99">
           <div className="bg-white p-10 rounded-2xl w-[85%] h-[100%] m-4 overflow-y-auto">
-            <div className="relative mb-4 w-full block">
-              {/* Prevent page scrolling when window is opened */}
-              <style>
-                {`
-                  body {
-                    overflow: hidden;
-                  }
-                `}
-              </style>
-
+            <div className="relative mb-4 w-full">
+              {(document.body.style.overflow = "hidden")}
               <button
                 className="absolute top-5 right-5 p-1 px-3 text-5xl font-bold bg-red-700 text-white rounded-2xl"
                 onClick={handleCloseWindow}
