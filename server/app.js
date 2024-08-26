@@ -18,6 +18,7 @@ app.use(
     method: ["GET", "POST", "DELETE", "PUT", "OPTIONS", "PATCH"],
   })
 );
+
 // routes
 const emailRoutes = require("./src/routes/emailRoutes");
 const welcomeRoutes = require("./src/routes/welcomeRoutes");

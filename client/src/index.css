@@ -126,6 +126,27 @@
   transform: translateZ(0);
 }
 
+/* SCROLLBAR */
+::-webkit-scrollbar {
+  width: 15px;
+  height: 15px;
+}
+
+::-webkit-scrollbar-track {
+  border-radius: 100vh;
+  background: #363534;
+}
+
+::-webkit-scrollbar-thumb {
+  background: #514d51;
+  border-radius: 100vh;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: #9d7878;
+  border-radius: 100vh;
+}
+
 @keyframes mulShdSpin {
   0%,
   100% {

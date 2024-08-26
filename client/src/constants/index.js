@@ -298,6 +298,76 @@ const projects = [
   },
 ];
 
+const blogs = [
+  {
+    name: "E-Requisition",
+    description: `Java-based user-friendly GUI app that allows users to create, edit, delete, print, complex calculations and many more.
+       Providing a convenient and efficient solution for requisition management.`,
+    tags: [
+      {
+        name: "java",
+        color: "blue-text-gradient",
+      },
+      {
+        name: "swing",
+        color: "green-text-gradient",
+      },
+      {
+        name: "mysql",
+        color: "pink-text-gradient",
+      },
+    ],
+    image: java,
+    source_code_link:
+      "https://github.com/xy3d/Requisition-Statement-Log-with-print-receipt-func-JAVA",
+    live_link: "https://jayeeed.netlify.app/",
+  },
+  {
+    name: "Facial Attendance",
+    description: `Web application that enables an organization to track and maintain attendance of it's employees with various kind
+       of functionalities such as- absense, in/out time, total time and many more.`,
+    tags: [
+      {
+        name: "python",
+        color: "blue-text-gradient",
+      },
+      {
+        name: "cv2",
+        color: "green-text-gradient",
+      },
+      {
+        name: "mysql",
+        color: "pink-text-gradient",
+      },
+    ],
+    image: facial,
+    source_code_link: "https://github.com/xy3d/FacialAttendance",
+    live_link: "https://jayeeed.netlify.app/",
+  },
+  {
+    name: "Photo Gallery",
+    description: `A fully responsive web application that can view images, sort their positions, delete individually or multiples,
+       upload images and other essential functionalities in a very modern fashion photo gallery structure.`,
+    tags: [
+      {
+        name: "react",
+        color: "blue-text-gradient",
+      },
+      {
+        name: "vite",
+        color: "green-text-gradient",
+      },
+      {
+        name: "tailwind",
+        color: "pink-text-gradient",
+      },
+    ],
+    image: gallery,
+    source_code_link: "https://github.com/jayeeed/Ollyo-Gallery",
+    live_link: "https://jayeeed.netlify.app/",
+  },
+];
+
 export {
   prime,
   services,
@@ -305,5 +375,6 @@ export {
   experiences,
   testimonials,
   projects,
+  blogs,
   socialMediaLinks,
 };
