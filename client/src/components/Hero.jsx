@@ -1,16 +1,17 @@
 /* eslint-disable react/no-unescaped-entities */
-
 import { motion } from "framer-motion";
 import { TypeAnimation } from "react-type-animation";
-
 import { styles } from "../styles";
-import { ComputersCanvas } from "./canvas";
+import { Suspense, lazy } from "react";
+
+// Dynamically import the ComputersCanvas component
+const ComputersCanvas = lazy(() => import("../components/canvas/Computers"));
 
 const Hero = () => {
   return (
     <section className={`relative w-full h-screen mx-auto`}>
       <div
-        className={`absolute inset-0 top-[120px]  max-w-7xl mx-auto ${styles.paddingX} flex flex-row items-start gap-8`}
+        className={`absolute inset-0 top-[120px] max-w-7xl mx-auto ${styles.paddingX} flex flex-row items-start gap-8`}
       >
         <div className="flex flex-col justify-center items-center mt-5">
           <div className="w-5 h-5 rounded-full bg-[#915EFF]" />
@@ -23,7 +24,6 @@ const Hero = () => {
           </h1>
           <TypeAnimation
             sequence={[
-              // Same substring at the start will only be typed once, initially
               "I Do Machine Learning",
               1000,
               "I Do Software Development",
@@ -39,7 +39,10 @@ const Hero = () => {
         </div>
       </div>
 
-      <ComputersCanvas />
+      {/* Use Suspense to wrap the dynamically imported component */}
+      <Suspense>
+        <ComputersCanvas />
+      </Suspense>
 
       <div className="absolute xs:bottom-10 bottom-32 w-full flex justify-center items-center">
         <a href="#about">

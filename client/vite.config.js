@@ -1,5 +1,8 @@
 import { defineConfig, loadEnv } from "vite";
 import react from "@vitejs/plugin-react";
+import { chunkSplitPlugin } from "vite-plugin-chunk-split";
+import replace from "@rollup/plugin-replace";
+import { visualizer } from "rollup-plugin-visualizer";
 
 export default ({ mode }) => {
   // Load app-level env vars to node-level env vars.
@@ -7,18 +10,30 @@ export default ({ mode }) => {
 
   // https://vitejs.dev/config/
   return defineConfig({
-    plugins: [react()],
+    plugins: [
+      react(),
+      chunkSplitPlugin(),
+      visualizer(),
+      replace({
+        "eval(": "((x)=>x)(", // Replacing eval with a no-op or any other logic
+        preventAssignment: true,
+      }),
+    ],
     server: {
       port: Number(process.env.VITE_PORT) || 3000,
     },
     build: {
-      minify: "esbuild", // Use 'esbuild' (default) or 'terser' for minification
-      sourcemap: false, // Disable source maps for smaller build size
-      outDir: "dist", // Specify the output directory
-      assetsDir: "assets", // Specify the directory for static assets
-      rollupOptions: {
-        output: {
-          manualChunks: undefined,
+      minify: "esbuild",
+      sourcemap: false,
+      outDir: "dist",
+      assetsDir: "assets",
+      chunkSizeWarningLimit: 1000,
+    },
+    rollupOptions: {
+      output: {
+        manualChunks: {
+          vendor: ["react", "react-dom", "three"],
+          // You can add more custom chunks here
         },
       },
     },
