@@ -10,7 +10,6 @@ import {
   Hero,
   Navbar,
   Sidebar,
-  Tech,
   Projects,
   Blogs,
   StarsCanvas,

@@ -6,8 +6,8 @@ import { OrbitControls, Preload, useGLTF } from "@react-three/drei";
 
 import CanvasLoader from "../Loader";
 
-const Computers = ({ isMobile }) => {
-  const computer = useGLTF("./late/scene.gltf");
+const Bot = ({ isMobile }) => {
+  const bot = useGLTF("./late/scene.gltf");
 
   return (
     <mesh>
@@ -22,7 +22,7 @@ const Computers = ({ isMobile }) => {
       />
       <pointLight intensity={1} />
       <primitive
-        object={computer.scene}
+        object={bot.scene}
         scale={isMobile ? 1.2 : 1.75}
         position={isMobile ? [0, -2.5, -1.2] : [0, -3, -4]}
         rotation={isMobile ? [0, 1.2, 0.05] : [0, 1.2, 0.05]}
@@ -31,7 +31,7 @@ const Computers = ({ isMobile }) => {
   );
 };
 
-const ComputersCanvas = () => {
+const BotCanvas = () => {
   const [isMobile, setIsMobile] = useState(false);
 
   useEffect(() => {
@@ -72,7 +72,7 @@ const ComputersCanvas = () => {
           rotateSpeed={isMobile ? [3] : [1]}
           zoomSpeed={1}
         />
-        <Computers isMobile={isMobile} />
+        <Bot isMobile={isMobile} />
       </Suspense>
 
       <Preload all />
@@ -80,4 +80,4 @@ const ComputersCanvas = () => {
   );
 };
 
-export default ComputersCanvas;
+export default BotCanvas;

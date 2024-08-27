@@ -1,15 +1,17 @@
 /* eslint-disable react-refresh/only-export-components */
 
-import { useRef, useState } from "react";
+import { useRef, useState, lazy, Suspense } from "react";
 import { motion } from "framer-motion";
 import axios from "axios";
 import Snackbar from "@mui/material/Snackbar";
 import MuiAlert from "@mui/material/Alert";
 
 import { styles } from "../styles";
-import { EarthCanvas } from "./canvas";
 import { SectionWrapper } from "../hoc";
 import { slideIn } from "../utils/motion";
+
+// Dynamically import
+const EarthCanvas = lazy(() => import("../components/canvas/Earth"));
 
 const Contact = () => {
   const formRef = useRef();
@@ -169,7 +171,9 @@ const Contact = () => {
         variants={slideIn("right", "tween", 0.2, 1)}
         className="xl:flex-1 xl:h-auto md:h-[550px] h-[350px]"
       >
-        <EarthCanvas />
+        <Suspense fallback={null}>
+          <EarthCanvas />
+        </Suspense>
       </motion.div>
     </div>
   );

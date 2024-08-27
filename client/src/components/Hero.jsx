@@ -4,8 +4,8 @@ import { TypeAnimation } from "react-type-animation";
 import { styles } from "../styles";
 import { Suspense, lazy } from "react";
 
-// Dynamically import the ComputersCanvas component
-const ComputersCanvas = lazy(() => import("../components/canvas/Computers"));
+// Dynamically import
+const BotCanvas = lazy(() => import("../components/canvas/Bot"));
 
 const Hero = () => {
   return (
@@ -22,26 +22,34 @@ const Hero = () => {
           <h1 className={`${styles.heroHeadText} text-white mb-4`}>
             Hi, I'm <span className="text-[#915EFF]">Jayed</span>
           </h1>
-          <TypeAnimation
-            sequence={[
-              "I Do Machine Learning",
-              1000,
-              "I Do Software Development",
-              1000,
-              "I Do Software Quality Assurance",
-              1000,
-            ]}
-            speed={20}
-            deletionSpeed={30}
-            repeat={Infinity}
-            className={`${styles.heroSubText} mt-2 text-white-100`}
-          />
+          <Suspense
+            fallback={
+              <div className={`${styles.heroSubText} mt-2 text-white-100`}>
+                Loading...
+              </div>
+            }
+          >
+            <TypeAnimation
+              sequence={[
+                "I Do Machine Learning",
+                1000,
+                "I Do Software Development",
+                1000,
+                "I Do Software Quality Assurance",
+                1000,
+              ]}
+              speed={20}
+              deletionSpeed={30}
+              repeat={Infinity}
+              className={`${styles.heroSubText} mt-2 text-white-100`}
+            />
+          </Suspense>
         </div>
       </div>
 
       {/* Use Suspense to wrap the dynamically imported component */}
-      <Suspense>
-        <ComputersCanvas />
+      <Suspense fallback={null}>
+        <BotCanvas />
       </Suspense>
 
       <div className="absolute xs:bottom-10 bottom-32 w-full flex justify-center items-center">

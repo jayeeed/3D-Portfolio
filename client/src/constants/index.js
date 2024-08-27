@@ -3,25 +3,12 @@ import {
   data,
   sqa,
   ml,
-  javascript,
-  html,
-  css,
-  reactjs,
-  redux,
-  tailwind,
-  nodejs,
-  mongodb,
-  git,
-  python,
-  docker,
   stamford,
   ipsita,
   a1qa,
   java,
   facial,
   gallery,
-  postgres,
-  linux,
 } from "../assets";
 
 import { FaLinkedin, FaGithub, FaFacebook, FaInstagram } from "react-icons/fa";
@@ -99,61 +86,6 @@ const services = [
   {
     title: "Data Science & Business Intelligence",
     icon: data,
-  },
-];
-
-const technologies = [
-  {
-    name: "HTML 5",
-    icon: html,
-  },
-  {
-    name: "CSS 3",
-    icon: css,
-  },
-  {
-    name: "Python",
-    icon: python,
-  },
-  {
-    name: "JavaScript",
-    icon: javascript,
-  },
-  {
-    name: "React JS",
-    icon: reactjs,
-  },
-  {
-    name: "Redux Toolkit",
-    icon: redux,
-  },
-  {
-    name: "Node JS",
-    icon: nodejs,
-  },
-  {
-    name: "Tailwind CSS",
-    icon: tailwind,
-  },
-  {
-    name: "MongoDB",
-    icon: mongodb,
-  },
-  {
-    name: "Postgres",
-    icon: postgres,
-  },
-  {
-    name: "git",
-    icon: git,
-  },
-  {
-    name: "docker",
-    icon: docker,
-  },
-  {
-    name: "Linux",
-    icon: linux,
   },
 ];
 
@@ -371,7 +303,6 @@ const blogs = [
 export {
   prime,
   services,
-  technologies,
   experiences,
   testimonials,
   projects,
