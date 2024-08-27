@@ -2,7 +2,6 @@
 /* eslint-disable react/no-unknown-property */
 /* eslint-disable react/prop-types */
 /* eslint-disable react-refresh/only-export-components */
-
 import { Tilt } from "react-tilt";
 import { motion } from "framer-motion";
 
