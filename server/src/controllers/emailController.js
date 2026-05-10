@@ -4,6 +4,16 @@ const nodemailer = require("nodemailer");
 
 const { sendThankYouEmail } = require("../models/emailModel");
 
+function escapeHtml(unsafe) {
+  if (typeof unsafe !== 'string') return '';
+  return unsafe
+    .replace(/&/g, "&amp;")
+    .replace(/</g, "&lt;")
+    .replace(/>/g, "&gt;")
+    .replace(/"/g, "&quot;")
+    .replace(/'/g, "&#039;");
+}
+
 async function sendEmail(req, res) {
   const { name, email, message } = req.body;
 
@@ -23,13 +33,13 @@ async function sendEmail(req, res) {
   );
   const emailTemplate = fs.readFileSync(emailTemplatePath, "utf-8");
 
-  // Replace placeholders in the HTML template with actual values
+  // Replace placeholders in the HTML template with actual values, escaping HTML only in the template body
   const formattedHtml = emailTemplate
-    .replace("{{name}}", name)
-    .replace("{{name}}", name)
-    .replace("{{email}}", email)
-    .replace("{{message}}", message)
-    .replace("{{message}}", message);
+    .replace("{{name}}", escapeHtml(name))
+    .replace("{{name}}", escapeHtml(name))
+    .replace("{{email}}", escapeHtml(email))
+    .replace("{{message}}", escapeHtml(message))
+    .replace("{{message}}", escapeHtml(message));
 
   // Email configuration
   const mailOptions = {
@@ -58,8 +68,8 @@ async function sendEmail(req, res) {
 
     // Replace placeholders in the thank-you email template with actual values
     const formattedThankYouHtml = thankYouEmailTemplate
-      .replace("{{name}}", name)
-      .replace("{{message}}", message);
+      .replace("{{name}}", escapeHtml(name))
+      .replace("{{message}}", escapeHtml(message));
 
     // Send thank-you email
     await sendThankYouEmail(email, formattedThankYouHtml);
